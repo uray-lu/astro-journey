@@ -6,26 +6,22 @@ const journeyItems = [
   {
     date: '2024',
     title: 'Senior Backend Engineer',
-    description: 'Leading API architecture and system design for scalable microservices.',
-    icon: '🚀'
+    description: 'Leading API architecture and system design for scalable microservices.'
   },
   {
     date: '2023',
     title: 'ML Engineer',
-    description: 'Built recommendation systems and deployed ML models to production.',
-    icon: '🤖'
+    description: 'Built recommendation systems and deployed ML models to production.'
   },
   {
     date: '2022',
     title: 'Full Stack Developer',
-    description: 'Developed web applications using React, Node.js, and PostgreSQL.',
-    icon: '💻'
+    description: 'Developed web applications using React, Node.js, and PostgreSQL.'
   },
   {
     date: '2021',
     title: 'Computer Science Degree',
-    description: 'Graduated with honors, focused on distributed systems.',
-    icon: '🎓'
+    description: 'Graduated with honors, focused on distributed systems.'
   }
 ];
 ---
@@ -44,14 +40,20 @@ const journeyItems = [
         background: #fafafa;
         color: #1a1a1a;
       }
-      h1 { margin-bottom: 2rem; }
+      h1, h2 { margin-bottom: 1rem; }
+      h2 { margin-top: 3rem; }
       @media (prefers-color-scheme: dark) {
         body { background: #1a1a1a; color: #fafafa; }
       }
     </style>
   </head>
   <body>
-    <h1>My Journey</h1>
+    <h1>astro-journey Demo</h1>
+
+    <h2>Default Layout</h2>
     <Timeline items={journeyItems} />
+
+    <h2>Split Layout</h2>
+    <Timeline items={journeyItems} layout="split" />
   </body>
 </html>
