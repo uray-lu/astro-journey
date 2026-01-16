@@ -15,6 +15,7 @@ export interface TimelineProps {
   class?: string;
   lineColor?: string;
   dotColor?: string;
+  titleHover?: string;
   layout?: TimelineLayout;
 }
 
