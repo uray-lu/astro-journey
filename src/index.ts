@@ -1,1 +1,1 @@
-export type { TimelineItem, TimelineProps, TimelineItemProps } from './types';
+export type { TimelineEntry, TimelineProps, TimelineItemProps } from './types';

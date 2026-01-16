@@ -5,8 +5,8 @@
  * 1. Array mode: Pass items[] prop to render from data
  * 2. Slot mode: Use <slot> for manual composition with TimelineItem
  */
-import type { TimelineProps, TimelineItem } from './types';
-import TimelineItemComponent from './TimelineItem.astro';
+import type { TimelineProps, TimelineEntry } from './types';
+import TimelineItem from './TimelineItem.astro';
 
 // Tell TypeScript what props this component accepts
 interface Props extends TimelineProps {}
@@ -29,8 +29,8 @@ const hasItems = items.length > 0;
 >
   {hasItems ? (
     /* Array mode: loop through items and render TimelineItemComponent */
-    items.map((item: TimelineItem, index: number) => (
-      <TimelineItemComponent
+    items.map((item: TimelineEntry, index: number) => (
+      <TimelineItem
         date={item.date}
         title={item.title}
         description={item.description}

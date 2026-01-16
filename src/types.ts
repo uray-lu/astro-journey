@@ -1,5 +1,5 @@
-// the data type user provide
-export interface TimelineItem {
+// The data type users provide for each timeline entry
+export interface TimelineEntry {
   date: string;
   title: string;
   description?: string;
@@ -9,13 +9,13 @@ export interface TimelineItem {
 
 // Props for the main <Timeline> component
 export interface TimelineProps {
-  items?: TimelineItem[];
+  items?: TimelineEntry[];
   class?: string;
   lineColor?: string;
   dotColor?: string;
 }
 
-// TimelineItemProps - Props for individual <TimelineItem>
+// Props for individual <TimelineItem>
 // TODO: add the photo and maybe no need the icon
 export interface TimelineItemProps {
   date: string;
