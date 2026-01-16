@@ -1,3 +1,4 @@
+/* === Container === */
 .aj-timeline {
   --aj-line-color: #d1d5db;
   --aj-dot-color: #6b7280;
@@ -11,11 +12,13 @@
   gap: var(--aj-spacing);
 }
 
+/* === Item Layout === */
 .aj-item {
   display: flex;
   gap: var(--aj-content-gap);
 }
 
+/* === Marker (dot + line) === */
 .aj-marker {
   display: flex;
   flex-direction: column;
@@ -34,11 +37,6 @@
   flex-shrink: 0;
 }
 
-.aj-icon {
-  font-size: calc(var(--aj-dot-size) * 0.6);
-  line-height: 1;
-}
-
 .aj-line {
   width: var(--aj-line-width);
   flex-grow: 1;
@@ -47,6 +45,7 @@
   min-height: 2rem;
 }
 
+/* === Content === */
 .aj-content {
   padding-bottom: var(--aj-spacing);
   flex: 1;
@@ -70,6 +69,20 @@
   margin-bottom: 0.25rem;
 }
 
+/* === Split Layout === */
+.aj-timeline--split .aj-item {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: var(--aj-content-gap);
+}
+
+.aj-date--left {
+  text-align: right;
+  min-width: 4rem;
+  margin-bottom: 0;
+  padding-top: 0.125rem;
+}
+
 .aj-title {
   font-size: 1.125rem;
   font-weight: 600;
@@ -84,6 +97,7 @@
   line-height: 1.5;
 }
 
+/* === Dark Mode === */
 @media (prefers-color-scheme: dark) {
   .aj-timeline {
     --aj-line-color: #4b5563;
