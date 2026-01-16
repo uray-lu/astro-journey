@@ -1,0 +1,44 @@
+---
+/**
+ * TimelineItem - Individual timeline entry component
+ * Renders a single milestone with dot marker, connector line, and content
+ */
+import type { TimelineItemProps } from './types';
+
+// Tell TypeScript what props this component accepts
+interface Props extends TimelineItemProps {}
+
+// Extract props from Astro.props (the data passed to this component)
+const { date, title, description, icon, link, isLast = false } = Astro.props;
+
+// Dynamic HTML element: use <a> if link exists, otherwise <div>
+const Tag = link ? 'a' : 'div';
+
+// Link attributes: only add href/target/rel if link exists
+const linkProps = link ? { href: link, target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+<!-- Timeline item wrapper -->
+<!--TODO: organize the css with tailwind -->
+<div class="aj-item">
+  <!-- Left side: dot marker and connector line -->
+  <div class="aj-marker">
+    <div class="aj-dot">
+      {/* Render icon inside dot if provided */}
+      {icon && <span class="aj-icon">{icon}</span>}
+    </div>
+    {/* Hide connector line on last item */}
+    <!-- make the line be dynamics -->
+    {!isLast && <div class="aj-line" />}
+  </div>
+
+  {/* Right side: content area (renders as <a> or <div>) */}
+  <!-- TODO: make the link and option and attach to text -->
+  <Tag class:list={['aj-content', { 'aj-link': link }]} {...linkProps}>
+    <span class="aj-date">{date}</span>
+    <h3 class="aj-title">{title}</h3>
+    {description && <p class="aj-desc">{description}</p>}
+    {/* Slot for custom content */}
+    <slot />
+  </Tag>
+</div>
