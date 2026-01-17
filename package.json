@@ -1,6 +1,6 @@
 {
   "name": "astro-journey",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A minimal, data-driven timeline component for Astro. Perfect for personal portfolios, changelogs, and career journeys.",
   "type": "module",
   "main": "./dist/index.js",
