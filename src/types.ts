@@ -13,7 +13,10 @@ export interface TimelineProps {
   class?: string;
   lineColor?: string;
   dotColor?: string;
+  titleColor?: string;
   titleHover?: string;
+  descColor?: string;
+  dateColor?: string;
 }
 
 // Props for individual <TimelineItem>
@@ -24,4 +27,5 @@ export interface TimelineItemProps {
   link?: string;
   image?: string;
   isLast?: boolean; // Internal: hides connector line on last item
+  lineHeight?: number; // Internal: calculated line height in rem
 }
