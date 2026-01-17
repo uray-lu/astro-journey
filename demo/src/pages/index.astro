@@ -2,29 +2,34 @@
 import Timeline from 'astro-journey/Timeline.astro';
 import 'astro-journey/styles.css';
 
+// Mixed date formats demo - showing proportional spacing works with different formats
 const journeyItems = [
   {
-    date: '2024',
+    date: '2024-08',
     title: 'Senior Backend Engineer',
     description: 'Leading API architecture and system design for scalable microservices.',
     link: 'https://example.com/backend',
     image: 'https://picsum.photos/400/200'
   },
   {
-    date: '2023',
+    date: 'July 31, 2024',
+    title: 'Promoted to Tech Lead',
+    description: 'Started leading a team of 5 engineers.'
+  },
+  {
+    date: '2023-06-13',
     title: 'ML Engineer',
     description: 'Built recommendation systems and deployed ML models to production.',
-    link: 'https://example.com/ml',
     image: '/machinelearningdemo.jpg'
   },
   {
-    date: '2022',
+    date: 'Mar 15, 2020',
     title: 'Full Stack Developer',
     description: 'Developed web applications using React, Node.js, and PostgreSQL.',
     image: 'https://picsum.photos/200/400'
   },
   {
-    date: '2021',
+    date: '2018',
     title: 'Computer Science Degree',
     description: 'Graduated with honors, focused on distributed systems.'
   }
@@ -55,10 +60,18 @@ const journeyItems = [
   <body>
     <h1>astro-journey Demo</h1>
 
-    <h2>Basic</h2>
+    <h2>Mixed Date Formats with Proportional Spacing</h2>
     <Timeline items={journeyItems} />
 
     <h2>Custom Colors</h2>
-    <Timeline items={journeyItems} lineColor="#8b5cf6" dotColor="#8b5cf6" titleHover="#a78bfa" />
+    <Timeline
+      items={journeyItems}
+      lineColor="#8b5cf6"
+      dotColor="#8b5cf6"
+      titleColor="#7c3aed"
+      titleHover="#a78bfa"
+      descColor="#6b7280"
+      dateColor="#9ca3af"
+    />
   </body>
 </html>
