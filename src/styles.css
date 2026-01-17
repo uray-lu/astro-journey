@@ -56,11 +56,13 @@
 .aj-link {
   text-decoration: none;
   color: inherit;
-  transition: opacity 0.2s ease;
+  transition: transform 0.2s ease;
+  display: block;
+  cursor: pointer;
 }
 
 .aj-link:hover {
-  opacity: 0.8;
+  transform: translateX(4px);
 }
 
 .aj-date {
