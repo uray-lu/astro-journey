@@ -10,6 +10,15 @@ A minimal timeline component for Astro that **visualizes time gaps** - recent ev
 
 Supports [multiple date formats](#date-formats) and works with any theme. Perfect for portfolios, changelogs, and career journeys.
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Demo](#demo)
+- [API Reference](#api-reference)
+- [Spacing Algorithm](#spacing-algorithm)
+- [License](#license)
+
 ## Installation
 
 ```bash
@@ -61,7 +70,22 @@ const journeyItems = [
 <Timeline items={journeyItems} />
 ```
 
-## Date Formats
+## Demo
+
+Run the demo locally:
+
+```bash
+git clone https://github.com/uray-lu/astro-journey.git
+cd astro-journey/demo
+npm install
+npm run dev
+```
+
+Open http://localhost:4321 to see the timeline in action.
+
+## API Reference
+
+### Date Formats
 
 Supports multiple formats (newest date first):
 
@@ -76,8 +100,6 @@ Supports multiple formats (newest date first):
 | `MMM D, YYYY` | `Jun 15, 2024` |
 
 Mix formats freely - the component parses and calculates gaps automatically.
-
-## Props
 
 ### Timeline Entry
 
@@ -116,9 +138,9 @@ Example with custom colors:
 />
 ```
 
-## Styling
+### CSS Custom Properties
 
-The component uses CSS custom properties with `--aj-` prefix. Override them for more control:
+Override these for more control:
 
 ```css
 .aj-timeline {
@@ -129,7 +151,7 @@ The component uses CSS custom properties with `--aj-` prefix. Override them for 
 }
 ```
 
-## How Proportional Spacing Works
+## Spacing Algorithm
 
 The timeline calculates spacing based on actual date differences:
 
