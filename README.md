@@ -1,0 +1,145 @@
+# astro-journey
+
+<!-- [![npm version](https://img.shields.io/npm/v/astro-journey)](https://www.npmjs.com/package/astro-journey)
+[![npm downloads](https://img.shields.io/npm/dm/astro-journey)](https://www.npmjs.com/package/astro-journey)
+[![license](https://img.shields.io/npm/l/astro-journey)](https://github.com/uray-lu/astro-journey/blob/master/LICENSE) -->
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Astro](https://img.shields.io/badge/Astro-4.0+-ff5d01?logo=astro&logoColor=white)](https://astro.build/)
+
+A minimal timeline component for Astro that **visualizes time gaps** - recent events cluster together, older events spread apart, making your changelog **instantly understandable**.
+
+Supports [multiple date formats](#date-formats) and works with any theme. Perfect for portfolios, changelogs, and career journeys.
+
+## Installation
+
+```bash
+npm install astro-journey
+```
+
+## Quick Start
+
+![Demo Screenshot](assets/demo-screenshot.png)
+
+```typescript
+---
+import Timeline from 'astro-journey/Timeline.astro';
+import 'astro-journey/styles.css';
+
+const journeyItems = [
+  {
+    date: '2024-08',
+    title: 'Senior Backend Engineer',
+    description: 'Leading API architecture and system design for scalable microservices.',
+    link: 'https://example.com/backend',
+    image: 'https://picsum.photos/400/200'
+  },
+  {
+    date: 'July 31, 2024',
+    title: 'Promoted to Tech Lead',
+    description: 'Started leading a team of 5 engineers.'
+  },
+  {
+    date: '2023-06-13',
+    title: 'ML Engineer',
+    description: 'Built recommendation systems and deployed ML models to production.',
+    image: '/machinelearning.jpg'
+  },
+  {
+    date: 'Mar 15, 2020',
+    title: 'Full Stack Developer',
+    description: 'Developed web applications using React, Node.js, and PostgreSQL.',
+    image: 'https://picsum.photos/200/400'
+  },
+  {
+    date: '2018',
+    title: 'Computer Science Degree',
+    description: 'Graduated with honors, focused on distributed systems.'
+  }
+];
+---
+
+<Timeline items={journeyItems} />
+```
+
+## Date Formats
+
+Supports multiple formats (newest date first):
+
+| Format | Example |
+|--------|---------|
+| `YYYY-MM-DD` | `2024-06-15` |
+| `YYYY-MM` | `2024-06` |
+| `YYYY` | `2024` |
+| `MMMM YYYY` | `June 2024` |
+| `MMM YYYY` | `Jun 2024` |
+| `MMMM D, YYYY` | `June 15, 2024` |
+| `MMM D, YYYY` | `Jun 15, 2024` |
+
+Mix formats freely - the component parses and calculates gaps automatically.
+
+## Props
+
+### Timeline Entry
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `date` | `string` | Yes | Date in supported format |
+| `title` | `string` | Yes | Entry title |
+| `description` | `string` | No | Entry description |
+| `link` | `string` | No | URL (opens in new tab) |
+| `image` | `string` | No | Image URL or path |
+
+### Timeline Component
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `items` | `TimelineEntry[]` | `[]` | Array of timeline entries |
+| `class` | `string` | - | Additional CSS class |
+| `lineColor` | `string` | `#d1d5db` | Connector line color |
+| `dotColor` | `string` | `#6b7280` | Dot marker color |
+| `titleColor` | `string` | `inherit` | Title text color |
+| `titleHover` | `string` | `#3b82f6` | Title hover color |
+| `descColor` | `string` | `inherit` | Description text color |
+| `dateColor` | `string` | `inherit` | Date text color |
+
+Example with custom colors:
+
+```astro
+<Timeline
+  items={items}
+  lineColor="#8b5cf6"
+  dotColor="#8b5cf6"
+  titleColor="#7c3aed"
+  titleHover="#a78bfa"
+  descColor="#6b7280"
+  dateColor="#9ca3af"
+/>
+```
+
+## Styling
+
+The component uses CSS custom properties with `--aj-` prefix. Override them for more control:
+
+```css
+.aj-timeline {
+  --aj-dot-size: 8px;
+  --aj-line-width: 2px;
+  --aj-spacing: 1.5rem;
+  --aj-content-gap: 1rem;
+}
+```
+
+## How Proportional Spacing Works
+
+The timeline calculates spacing based on actual date differences:
+
+- **1 month gap** = ~1rem padding
+- **6 month gap** = ~6rem padding
+- **Gaps < 1 month** = 0.5rem minimum
+- **Gaps > 8 months** = 8rem maximum
+
+This creates a visual representation of time - recent activity clusters together while older entries spread out.
+
+## License
+
+MIT
