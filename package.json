@@ -20,6 +20,8 @@
   ],
   "scripts": {
     "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -38,7 +40,8 @@
   },
   "devDependencies": {
     "astro": "^5.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.17"
   },
   "repository": {
     "type": "git",
@@ -47,5 +50,8 @@
   "bugs": {
     "url": "https://github.com/raylu/astro-journey/issues"
   },
-  "homepage": "https://github.com/raylu/astro-journey#readme"
+  "homepage": "https://github.com/raylu/astro-journey#readme",
+  "dependencies": {
+    "dayjs": "^1.11.19"
+  }
 }
