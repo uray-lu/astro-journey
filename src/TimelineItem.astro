@@ -10,13 +10,16 @@ import type { TimelineItemProps } from './types';
 interface Props extends TimelineItemProps {}
 
 // Extract props from Astro.props (the data passed to this component)
-const { date, title, description, link, image, isLast = false } = Astro.props;
+const { date, title, description, link, image, isLast = false, lineHeight } = Astro.props;
 
 // Dynamic HTML element: use <a> if link exists, otherwise <div>
 const Tag = link ? 'a' : 'div';
 
 // Link attributes: only add href/target/rel if link exists
 const linkProps = link ? { href: link, target: '_blank', rel: 'noopener noreferrer' } : {};
+
+// Content style for proportional spacing
+const contentStyle = lineHeight ? `padding-bottom: ${lineHeight}rem` : undefined;
 ---
 
 <div class="aj-item">
@@ -30,10 +33,14 @@ const linkProps = link ? { href: link, target: '_blank', rel: 'noopener noreferr
   </div>
 
   {/* Right: Content */}
-  <Tag class:list={['aj-content', { 'aj-link': link }]} {...linkProps}>
-    <h3 class="aj-title">{title}</h3>
-    {description && <p class="aj-desc">{description}</p>}
-    {image && <img class="aj-image" src={image} alt={title} />}
-    <slot />
+  <Tag class:list={['aj-content', { 'aj-link': link }]} style={contentStyle} {...linkProps}>
+    <div class="aj-content-inner">
+      <div class="aj-text">
+        <h3 class="aj-title">{title}</h3>
+        {description && <p class="aj-desc">{description}</p>}
+        <slot />
+      </div>
+      {image && <img class="aj-image" src={image} alt={title} />}
+    </div>
   </Tag>
 </div>

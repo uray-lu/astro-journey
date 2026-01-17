@@ -4,19 +4,35 @@
  * Supports two modes:
  * 1. Array mode: Pass items[] prop to render from data
  * 2. Slot mode: Use <slot> for manual composition with TimelineItem
+ *
+ * Features proportional spacing based on date gaps
  */
 import type { TimelineProps, TimelineEntry } from './types';
 import TimelineItem from './TimelineItem.astro';
+import { calculateGaps } from './utils/gapCalculator';
 
 // Tell TypeScript what props this component accepts
 interface Props extends TimelineProps {}
 
 // Extract props with defaults
 // class is renamed to className (class is reserved keyword in JS)
-const { items = [], class: className, lineColor, dotColor, titleHover } = Astro.props;
+const { items = [], class: className, lineColor, dotColor, titleColor, titleHover, descColor, dateColor } = Astro.props;
 
 // Check if items array has data (determines which mode to use)
 const hasItems = items.length > 0;
+
+// Calculate proportional gaps based on dates
+let lineHeights: number[] = [];
+if (hasItems) {
+  const dates = items.map((item: TimelineEntry) => item.date);
+  const result = calculateGaps(dates);
+
+  if (result.error) {
+    throw new Error(`[astro-journey] ${result.error}`);
+  }
+
+  lineHeights = result.gaps;
+}
 ---
 
 <!-- Timeline container with optional custom colors via CSS variables -->
@@ -25,7 +41,10 @@ const hasItems = items.length > 0;
   style={[
     lineColor && `--aj-line-color: ${lineColor}`,
     dotColor && `--aj-dot-color: ${dotColor}`,
-    titleHover && `--aj-title-hover-color: ${titleHover}`
+    titleColor && `--aj-title-color: ${titleColor}`,
+    titleHover && `--aj-title-hover-color: ${titleHover}`,
+    descColor && `--aj-desc-color: ${descColor}`,
+    dateColor && `--aj-date-color: ${dateColor}`
   ].filter(Boolean).join('; ')}
 >
   {hasItems ? (
@@ -38,6 +57,7 @@ const hasItems = items.length > 0;
         link={item.link}
         image={item.image}
         isLast={index === items.length - 1}
+        lineHeight={lineHeights[index]}
       />
     ))
   ) : (
