@@ -93,6 +93,16 @@
   line-height: 1.5;
 }
 
+/* === Image === */
+.aj-image {
+  max-width: 150px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-top: 0.75rem;
+}
+
 /* === Dark Mode === */
 @media (prefers-color-scheme: dark) {
   .aj-timeline {

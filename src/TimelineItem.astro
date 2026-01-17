@@ -10,7 +10,7 @@ import type { TimelineItemProps } from './types';
 interface Props extends TimelineItemProps {}
 
 // Extract props from Astro.props (the data passed to this component)
-const { date, title, description, link, isLast = false } = Astro.props;
+const { date, title, description, link, image, isLast = false } = Astro.props;
 
 // Dynamic HTML element: use <a> if link exists, otherwise <div>
 const Tag = link ? 'a' : 'div';
@@ -33,6 +33,7 @@ const linkProps = link ? { href: link, target: '_blank', rel: 'noopener noreferr
   <Tag class:list={['aj-content', { 'aj-link': link }]} {...linkProps}>
     <h3 class="aj-title">{title}</h3>
     {description && <p class="aj-desc">{description}</p>}
+    {image && <img class="aj-image" src={image} alt={title} />}
     <slot />
   </Tag>
 </div>

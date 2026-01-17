@@ -4,6 +4,7 @@ export interface TimelineEntry {
   title: string;
   description?: string;
   link?: string;
+  image?: string;
 }
 
 // Props for the main <Timeline> component
@@ -21,5 +22,6 @@ export interface TimelineItemProps {
   title: string;
   description?: string;
   link?: string;
+  image?: string;
   isLast?: boolean; // Internal: hides connector line on last item
 }
