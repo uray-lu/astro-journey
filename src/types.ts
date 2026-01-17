@@ -6,9 +6,6 @@ export interface TimelineEntry {
   link?: string;
 }
 
-// Layout options: 'default' (date in content) or 'split' (date on left)
-export type TimelineLayout = 'default' | 'split';
-
 // Props for the main <Timeline> component
 export interface TimelineProps {
   items?: TimelineEntry[];
@@ -16,7 +13,6 @@ export interface TimelineProps {
   lineColor?: string;
   dotColor?: string;
   titleHover?: string;
-  layout?: TimelineLayout;
 }
 
 // Props for individual <TimelineItem>
@@ -26,5 +22,4 @@ export interface TimelineItemProps {
   description?: string;
   link?: string;
   isLast?: boolean; // Internal: hides connector line on last item
-  layout?: TimelineLayout; // Internal: passed from parent Timeline
 }

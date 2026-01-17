@@ -2,7 +2,7 @@
 /**
  * TimelineItem - Individual timeline entry component
  * Renders a single milestone with dot marker, connector line, and content
- * Supports two layouts: 'default' (date in content) and 'split' (date on left)
+ * Layout: date on left, dot in center, content on right
  */
 import type { TimelineItemProps } from './types';
 
@@ -10,38 +10,29 @@ import type { TimelineItemProps } from './types';
 interface Props extends TimelineItemProps {}
 
 // Extract props from Astro.props (the data passed to this component)
-const { date, title, description, link, isLast = false, layout = 'default' } = Astro.props;
+const { date, title, description, link, isLast = false } = Astro.props;
 
 // Dynamic HTML element: use <a> if link exists, otherwise <div>
 const Tag = link ? 'a' : 'div';
 
 // Link attributes: only add href/target/rel if link exists
 const linkProps = link ? { href: link, target: '_blank', rel: 'noopener noreferrer' } : {};
-
-// Check if using split layout
-const isSplit = layout === 'split';
 ---
 
-<!-- Timeline item wrapper -->
 <div class="aj-item">
-  {/* Split layout: date on the left */}
-  {isSplit && <span class="aj-date aj-date--left">{date}</span>}
+  {/* Left: Date */}
+  <span class="aj-date">{date}</span>
 
-  <!-- Marker: dot and connector line -->
+  {/* Center: Marker (dot + line) */}
   <div class="aj-marker">
     <div class="aj-dot" />
-
-    {/* Hide connector line on last item */}
     {!isLast && <div class="aj-line" />}
   </div>
 
-  {/* Content area (renders as <a> or <div>) */}
+  {/* Right: Content */}
   <Tag class:list={['aj-content', { 'aj-link': link }]} {...linkProps}>
-    {/* Default layout: date inside content */}
-    {!isSplit && <span class="aj-date">{date}</span>}
     <h3 class="aj-title">{title}</h3>
     {description && <p class="aj-desc">{description}</p>}
-    {/* Slot for custom content */}
     <slot />
   </Tag>
 </div>

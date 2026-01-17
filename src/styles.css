@@ -3,7 +3,7 @@
   --aj-line-color: #d1d5db;
   --aj-dot-color: #6b7280;
   --aj-title-hover-color: #3b82f6;
-  --aj-dot-size: 12px;
+  --aj-dot-size: 8px;
   --aj-line-width: 2px;
   --aj-spacing: 1.5rem;
   --aj-content-gap: 1rem;
@@ -15,7 +15,8 @@
 
 /* === Item Layout === */
 .aj-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
   gap: var(--aj-content-gap);
 }
 
@@ -66,30 +67,16 @@
 }
 
 .aj-date {
-  display: block;
   font-size: 0.875rem;
   color: #6b7280;
-  margin-bottom: 0.25rem;
-}
-
-/* === Split Layout === */
-.aj-timeline--split .aj-item {
-  display: grid;
-  grid-template-columns: auto auto 1fr;
-  gap: var(--aj-content-gap);
-}
-
-.aj-date--left {
   text-align: right;
   min-width: 4rem;
-  margin-bottom: 0;
-  padding-top: 0.125rem;
 }
 
 .aj-title {
   font-size: 1.125rem;
   font-weight: 600;
-  margin: 0 0 0.25rem 0;
+  margin: -0.3rem 0 0.25rem 0;
   line-height: 1.4;
   transition: color 0.2s ease;
 }
