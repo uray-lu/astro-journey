@@ -1,8 +1,8 @@
 # astro-journey
 
-<!-- [![npm version](https://img.shields.io/npm/v/astro-journey)](https://www.npmjs.com/package/astro-journey)
+[![npm version](https://img.shields.io/npm/v/astro-journey)](https://www.npmjs.com/package/astro-journey)
 [![npm downloads](https://img.shields.io/npm/dm/astro-journey)](https://www.npmjs.com/package/astro-journey)
-[![license](https://img.shields.io/npm/l/astro-journey)](https://github.com/uray-lu/astro-journey/blob/master/LICENSE) -->
+[![license](https://img.shields.io/npm/l/astro-journey)](https://github.com/uray-lu/astro-journey/blob/master/LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Astro](https://img.shields.io/badge/Astro-4.0+-ff5d01?logo=astro&logoColor=white)](https://astro.build/)
 
