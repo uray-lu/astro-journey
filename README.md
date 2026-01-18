@@ -20,6 +20,7 @@ Supports [multiple date formats](#date-formats) and works with any theme. Perfec
   - [Timeline Component](#timeline-component)
 - [Styling](#styling)
 - [Spacing Algorithm](#spacing-algorithm)
+- [Versioning](#versioning)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -181,6 +182,12 @@ The timeline calculates spacing based on actual date differences:
 - **Gaps > 8 months** = 8rem maximum
 
 This creates a visual representation of time - recent activity clusters together while older entries spread out.
+
+## Versioning
+
+Published versions are tagged as `v*` (e.g., `v0.1.0`, `v0.2.0`). The `master` branch may contain unreleased features.
+
+To see the source code for a specific published version, check the [tags](https://github.com/uray-lu/astro-journey/tags) or [releases](https://github.com/uray-lu/astro-journey/releases).
 
 ## Contributing
 
