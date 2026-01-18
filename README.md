@@ -14,8 +14,11 @@ Supports [multiple date formats](#date-formats) and works with any theme. Perfec
 
 - [Installation](#installation)
 - [Quick Start](#quick-start)
-- [Demo](#demo)
 - [API Reference](#api-reference)
+  - [Date Formats](#date-formats)
+  - [Timeline Entry](#timeline-entry)
+  - [Timeline Component](#timeline-component)
+- [Styling](#styling)
 - [Spacing Algorithm](#spacing-algorithm)
 - [License](#license)
 
@@ -70,18 +73,7 @@ const journeyItems = [
 <Timeline items={journeyItems} />
 ```
 
-## Demo
-
-Run the demo locally:
-
-```bash
-git clone https://github.com/uray-lu/astro-journey.git
-cd astro-journey/demo
-npm install
-npm run dev
-```
-
-Open http://localhost:4321 to see the timeline in action.
+> Go to the [demo](./demo) for a complete example.
 
 ## API Reference
 
@@ -99,7 +91,7 @@ Supports multiple formats (newest date first):
 | `MMMM D, YYYY` | `June 15, 2024` |
 | `MMM D, YYYY` | `Jun 15, 2024` |
 
-Mix formats freely - the component parses and calculates gaps automatically.
+> Mix formats freely - the component parses and calculates gaps automatically.
 
 ### Timeline Entry
 
@@ -110,6 +102,16 @@ Mix formats freely - the component parses and calculates gaps automatically.
 | `description` | `string` | No | Entry description |
 | `link` | `string` | No | URL (opens in new tab) |
 | `image` | `string` | No | Image URL or path |
+
+```typescript
+interface TimelineEntry {
+  date: string;
+  title: string;
+  description?: string;
+  link?: string;
+  image?: string;
+}
+```
 
 ### Timeline Component
 
@@ -138,16 +140,33 @@ Example with custom colors:
 />
 ```
 
-### CSS Custom Properties
+## Styling
 
-Override these for more control:
+The component uses CSS custom properties with `--aj-` prefix for easy customization:
+
+| Property | Default | Description |
+|----------|---------|-------------|
+| `--aj-dot-size` | `8px` | Size of the dot marker |
+| `--aj-dot-color` | `#6b7280` | Dot marker color |
+| `--aj-line-width` | `2px` | Width of connector line |
+| `--aj-line-color` | `#d1d5db` | Connector line color |
+| `--aj-spacing` | `1.5rem` | Base spacing unit |
+| `--aj-content-gap` | `1rem` | Gap between marker and content |
+| `--aj-title-color` | `inherit` | Title text color |
+| `--aj-title-hover-color` | `#3b82f6` | Title hover color |
+| `--aj-desc-color` | `inherit` | Description text color |
+| `--aj-date-color` | `inherit` | Date text color |
+
+Example:
 
 ```css
 .aj-timeline {
-  --aj-dot-size: 8px;
-  --aj-line-width: 2px;
-  --aj-spacing: 1.5rem;
-  --aj-content-gap: 1rem;
+  --aj-dot-size: 10px;
+  --aj-dot-color: #8b5cf6;
+  --aj-line-width: 3px;
+  --aj-line-color: #8b5cf6;
+  --aj-title-color: #7c3aed;
+  --aj-title-hover-color: #a78bfa;
 }
 ```
 
