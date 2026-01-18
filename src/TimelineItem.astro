@@ -10,7 +10,7 @@ import type { TimelineItemProps } from './types';
 interface Props extends TimelineItemProps {}
 
 // Extract props from Astro.props (the data passed to this component)
-const { date, title, description, link, image, isLast = false, lineHeight } = Astro.props;
+const { date, title, description, link, image, isFirst = false, isLast = false, lineHeight } = Astro.props;
 
 // Dynamic HTML element: use <a> if link exists, otherwise <div>
 const Tag = link ? 'a' : 'div';
@@ -28,6 +28,7 @@ const contentStyle = lineHeight ? `padding-bottom: ${lineHeight}rem` : undefined
 
   {/* Center: Marker (dot + line) */}
   <div class="aj-marker">
+    {isFirst && <div class="aj-line aj-line-top" />}
     <div class="aj-dot" />
     {!isLast && <div class="aj-line" />}
   </div>

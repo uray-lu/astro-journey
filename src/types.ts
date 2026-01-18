@@ -26,6 +26,7 @@ export interface TimelineItemProps {
   description?: string;
   link?: string;
   image?: string;
+  isFirst?: boolean; // Internal: shows line above first dot (ongoing indicator)
   isLast?: boolean; // Internal: hides connector line on last item
   lineHeight?: number; // Internal: calculated line height in rem
 }
