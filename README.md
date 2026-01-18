@@ -6,9 +6,9 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Astro](https://img.shields.io/badge/Astro-4.0+-ff5d01?logo=astro&logoColor=white)](https://astro.build/)
 
-A minimal timeline component for Astro that **visualizes time gaps** - recent events cluster together, older events spread apart, making your changelog **instantly understandable**.
+A timeline component for Astro that makes your changelog **intuitive** - entries are spaced based on actual time gaps, so recent changes appear closer together and older ones spread apart.
 
-Supports [multiple date formats](#date-formats) and works with any theme. Perfect for portfolios, changelogs, and career journeys.
+Supports [multiple date formats](#date-formats) and adapts to any theme. Perfect for portfolios, changelogs, and career journeys.
 
 ## Table of Contents
 
