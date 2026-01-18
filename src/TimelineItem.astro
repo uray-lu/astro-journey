@@ -30,7 +30,7 @@ const contentStyle = lineHeight ? `padding-bottom: ${lineHeight}rem` : undefined
   <div class="aj-marker">
     {isFirst && <div class="aj-line aj-line-top" />}
     <div class="aj-dot" />
-    {!isLast && <div class="aj-line" />}
+    {!isLast ? <div class="aj-line" /> : <div class="aj-line aj-line-bottom" />}
   </div>
 
   {/* Right: Content */}
