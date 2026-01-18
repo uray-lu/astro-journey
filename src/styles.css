@@ -56,6 +56,12 @@
   margin-top: -2rem;
 }
 
+.aj-line-bottom {
+  margin-top: 0.5rem;
+  min-height: 3rem;
+  flex-grow: 0;
+}
+
 /* === Content === */
 .aj-content {
   flex: 1;
@@ -89,7 +95,7 @@
 .aj-date {
   font-size: 0.875rem;
   color: var(--aj-date-color);
-  opacity: 0.6;
+  opacity: 0.9;
   text-align: right;
   width: 8rem;
   flex-shrink: 0;
@@ -112,7 +118,7 @@
 .aj-desc {
   font-size: 0.875rem;
   color: var(--aj-desc-color);
-  opacity: 0.6;
+  opacity: 0.7;
   margin: 0;
   line-height: 1.5;
 }
